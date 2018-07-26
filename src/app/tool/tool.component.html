@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <p>Ajouter un application au rapport</p>
+      <button mat-icon-button class="button">
+        <mat-icon style="font-size:25px; color: #82C46C" aria-label="Add" (click)="addReportRow()">playlist_add</mat-icon>
+      </button>
+    </div>
+    <div class="col-md-9"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <label class="form-group">Choisir l'application</label>
+        <select class="form-control">
+          <option>Net Crédit</option>
+          <option>Net Démat</option>
+          <option>ODEJ</option>
+          <option>Crédit Bail Santé</option>
+          <option>WebMarchand Auto</option>
+          <option>Shell Outil d'aide à la vente</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label class="form-group">Choisir l'Etat</label>
+        <select class="form-control">
+          <option>Ouvert</option>
+          <option>Fermé</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label class="form-group">Choisir le Scénario</label>
+        <select class="form-control">
+          <option>Page Accueil</option>
+          <option>Offre Alternative</option>
+          <option>Utilisation Carte</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label class="form-group">Choisir le Statut</label>
+        <select class="form-control">
+          <option>Ouverture à l'heure</option>
+          <option>Non ouvert</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <label class="form-group">Commentaires</label>
+      <textarea class="form-control" rows="1"></textarea>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
