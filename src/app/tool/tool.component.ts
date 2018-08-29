@@ -1,3 +1,5 @@
+import { Application } from './../models/application';
+import { ApplicationService } from './../services/application.service';
 import { Component, OnInit } from '@angular/core';
 import { ReportRow } from 'src/app/report-row';
 
@@ -19,9 +21,16 @@ export class ToolComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  applications: Application[];
 
+  constructor(public applicationService: ApplicationService) { }
+ // la particularité ngOnInit c'est que le code s'y éxécute quand l'objet est initialisé
   ngOnInit() {
+      console.log('nGoNiNIT' + this.applications);
+    this.applicationService.getAllApplication()
+      .subscribe((appli: Application[]) => {
+        this.applications = appli; });
+
   }
 
   addReportRow() {
