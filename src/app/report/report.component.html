@@ -1,10 +1,64 @@
-<p>
-  report works!
 
-</p>
+<div class="container-fluid">
 
-<ul>
-  <li *ngFor="let application of applications">
-    {{application}}
-  </li>
-</ul>
+  <h4>Rapport des applications</h4>
+
+
+  <div class="row">
+    <div class="col-md-2">
+      <h6>Application</h6>
+
+    </div>
+
+    <div class="col-md-2">
+      <h6>Etat de l'application</h6>
+    </div>
+    <div class="col-md-2">
+      <h6>Scenario</h6>
+    </div>
+    <div class="col-md-2">
+      <h6>Statut du Scénario</h6>
+
+    </div>
+    <div class="col-md-2">
+      <h6>Commentaires</h6>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let reportscenario of reportscenarios">
+    <div class="col-md-2">
+      <div class="form-group">
+          <P>{{ reportscenario.scenario.application.name }} </P>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <!-- <P>{{ reportscenario.reportlineappli.etat }}</P> -->
+        <P>A déterminer </P>     
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <mat-card-content>{{ reportscenario.scenario.name }}</mat-card-content>
+      </div>
+    </div>
+    <div class="col-md-2">
+
+      <div class="form-group">
+          <mat-card-content>{{ reportscenario.statut.label }} </mat-card-content>
+        <!-- <mat-card-content (change)="calculateLabelAppli()">{{ reportscenario.statut.label }} </mat-card-content> -->
+        <!-- <mat-card-content [(ngModel)]="reportscenario.statut.id" (change)="calculateLabelAppli()">{{ reportscenario.statut.label }} </mat-card-content> -->
+      </div>
+    </div>
+    <div class="col-md-2">
+      <!-- <mat-card-content>{{ reportscenario.reportlineappli.comment }} </mat-card-content> -->
+      <p>commentaire à coder</p>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>

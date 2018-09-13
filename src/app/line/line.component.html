@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <!-- <div class="row" *ngFor='let scenario of scenarios'> -->
+    <!-- On rattche le formulaire (balise form) au formGroup. -->
+    <form [formGroup]="reportFormLine" (submit)="forwardLine(reportFormLine)">
+      <!-- <div class="col-md-3"> -->
+        <input type="date" formControlName="date">
+        <mat-form-field>
+        <mat-select placeholder="Scenario" formControlName="scenario">
+          <!-- <mat-option *ngFor="let name of nameScenario" [value]="name">  
+              {{ name }}-->
+          <mat-option *ngFor="let scenario of nameScenario" [value]="scenario">
+            {{ scenario }}
+        
+          </mat-option>
+        </mat-select> 
+      </mat-form-field>
+      <!-- </div>
+      <div class="col-md-3"> -->
+        <!-- <input type="text" formControlName="name" [value]="scenario.name"> {{ scenario.name }} -->
+        <mat-form-field>
+          <mat-select placeholder="Statut" formControlName="statut">
+            <mat-option *ngFor="let statut of statutScenario" [value]="statut">
+                {{ statut }} 
+            <!-- <mat-option *ngFor="let statut of statuts" [value]="statut"> 
+              {{ statut.label }} -->
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <!-- </div>
+      <div class="col-md-3"> -->
+        <input type="text" formControlName="comment">
+      <!-- </div>
+      <div class="col-md-3"> -->
+        <button type="submit" class="btn btn-primar">Enregistrer le rapport</button>
+      <!-- </div> -->
+      <pre>{{reportFormLine.value | json}}</pre>
+    </form>
+  <!-- </div> -->
+
+  <!-- <form [formGroup]="reportFormLine">
+    <div class="form-group">
+      <label>date</label>
+      <input type="text" class="form-control" formControlName="date" required>
+    </div>
+
+    <div class="form-group">
+      <label>scenario</label>
+      <input type="text" class="form-control" formControlName="name" required>
+    </div>
+
+    <mat-form-field>
+      <mat-select placeholder="Scenario" formControleName="name">
+        <mat-option *ngFor="let name of nameScenario" [value]="name">
+          {{ name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <pre>{{reportFormLine.value | json}}</pre>
+  </form> -->
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-1">
+        <br>
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primar">Enregistrer le rapport et l'envoyer par email</button>
+      </div>
+      <div class="col-md-8">
+      </div>
+    </div>
+  </div>
+
+</div>

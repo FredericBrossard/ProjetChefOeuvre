@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+// @Injectable()
+
 export class ApplicationService {
 
   API_URL = 'http://localhost:8090/suiviappli';

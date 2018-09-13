@@ -1,5 +1,8 @@
-
+import { Reportscenario } from './../models/reportscenario';
+import { Statut } from 'src/app/models/statut';
+import { Reportappli } from 'src/app/models/reportappli';
 import { Component, OnInit } from '@angular/core';
+import { ReportscenarioService } from 'src/app/services/reportscenario.service';
 
 
 @Component({
@@ -10,10 +13,23 @@ import { Component, OnInit } from '@angular/core';
 
 export class ReportComponent implements OnInit {
 
-  constructor() { }
+  reportscenarios: Reportscenario[];
+  reportapplis: Reportappli[];
+
+  // reportService est de type "HistoreportService"
+  constructor(private reportscenarioService: ReportscenarioService) { }
 
   ngOnInit() {
+
+    this.reportscenarioService.getReport()
+      .subscribe(
+        (data: Reportscenario[]) => {
+          this.reportscenarios = data;
+          console.log(data);
+        });
   }
 
 
-}
+
+  }
+

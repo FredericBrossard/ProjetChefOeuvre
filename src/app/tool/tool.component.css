@@ -1,0 +1,10 @@
+.cellule {
+    border-width:1px; 
+    /* border-style: solid;
+    border-color: rgb(212, 209, 209);
+    border-radius: 5px; */
+    background-color: white;
+    height: 15px;
+    width: 300px;
+    text-align: start;
+  }
