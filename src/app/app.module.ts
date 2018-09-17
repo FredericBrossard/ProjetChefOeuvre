@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LineComponent } from 'src/app/line/line.component';
 import { ListreportComponent } from 'src/app/listreport/listreport.component';
 import { ConsultreportComponent } from './consultreport/consultreport.component';
+import { EditreportComponent } from './editreport/editreport.component';
 
 const routes: Routes = [
   { path: '' , component: HomeComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'line' , component: LineComponent },
   { path: 'contact' , component: ContactComponent },
   { path: 'listreport' , component: ListreportComponent },
-  { path: 'consultreport' , component: ConsultreportComponent }
+  { path: 'consultreport/:id' , component: ConsultreportComponent },
+  { path: 'editreport/:id' , component:  EditreportComponent }
 
   ];
 
@@ -40,7 +42,8 @@ const routes: Routes = [
     LineComponent,
     ReportComponent,
     ListreportComponent,
-    ConsultreportComponent
+    ConsultreportComponent,
+    EditreportComponent
   ],
   imports: [
     BrowserModule,

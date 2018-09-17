@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 
   <h4>Liste de rapports</h4>
 
@@ -12,16 +12,41 @@
     <div class="col-md-1">
       <div class="form-group">
         <P>{{ listdatereport.date | date }}</P>
+        {{ listdatereport.id }}
       </div>
     </div>
     <div class="col-md-1">
 
     </div>
     <div class="col-md-2">
-      <button type="submit" class="btn btn-primar">Consulter le rapport</button>
+     <button type="submit" class="btn btn-primar" (click)="consultReportAppli(listdatereport.id)">Consulter le rapport</button> <--- a mettre en commentaire si tu reactives ce cade
+      <button type="submit" class="btn btn-primar" [routerLink]="'/consultreport/' + listdatereport.id">Consulter le rapport</button>
     </div>
     <div class="col-md-8">
     </div>
-  </div>
+  </div> 
 
-</div>
+</div>-->
+
+<div class="table-responsive">
+    <ng-container *ngIf="reports">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Liste des Rapports</th>
+                    <th scope="col"></th>
+                    <th scope="col">Cliquer pour le détail</th>
+                    <th scope="col">Cliquer pour modifier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let listdatereport of reports">
+                    <td>{{ listdatereport.date | date }}</td>
+                    <td></td>
+                    <td> <button type="submit" class="btn btn-primar" [routerLink]="'/consultreport/' + listdatereport.id">Consulter le rapport</button></td>   
+                    <td> <button type="submit" class="btn btn-primar" [routerLink]="'/editreport/' + listdatereport.id">Editer le rapport</button></td>          
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+    </div>

@@ -6,7 +6,7 @@ export interface Scenario {
     id: number;
     name: string;
     application: Application;
-    reportLineScenario: Reportscenario;
-    statut: Statut;
+    listReportLineScenario: Reportscenario[];
+    liststatut: Statut[];
 
 }

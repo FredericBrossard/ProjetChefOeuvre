@@ -1,7 +1,9 @@
-import { Historeport } from 'src/app/models/historeport';
+import { Scenario } from 'src/app/models/scenario';
+import { Reportappli } from 'src/app/models/reportappli';
 
 export interface Application {
     id: number;
     name: string;
-    // histoReportEtat: Historeport;
+    listScenario: Scenario[];
+    listReportLineAppli: Reportappli[];
 }

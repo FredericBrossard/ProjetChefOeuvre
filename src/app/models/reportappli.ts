@@ -5,10 +5,10 @@ import { State } from 'src/app/models/state';
 
 export interface Reportappli {
     id: number;
-    report: Report;
+    // report: Report;
     application: Application;
     etat: State;
     comment: string;
-    reportlinescenario: Reportscenario;
+    listReportLineScenario: Reportscenario[];
 
 }

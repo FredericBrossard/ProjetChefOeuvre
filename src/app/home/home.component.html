@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
       <h4>Liste des Applications</h4>
@@ -8,10 +8,26 @@
     <div class="col-md-6">
       <ul>
         <li *ngFor="let application of applications">
-            <!-- <mat-icon matListIcon>touch_app</mat-icon> -->
-          <p>{{ application.name }}</p> 
-        </li>
-      </ul>
-    </div>
-  </div>
+            <mat-icon matListIcon>touch_app</mat-icon> <--- a mettre en commentaire si tu reactives ce moceau de code
+<p>{{ application.name }}</p>
+</li>
+</ul>
+</div>
+</div>
+</div> -->
+
+<div class="table-responsive">
+  <ng-container *ngIf="applications">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Liste des Application</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let application of applications">
+          <td>{{ application.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
 </div>

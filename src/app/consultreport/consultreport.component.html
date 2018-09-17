@@ -1,1 +1,98 @@
-<button type="submit" class="btn btn-primar" (submit)="consultReportAppli(2)">Consulter le rapport</button>
+<!-- <P>{{ listdatereport.date | date }}</P> -->
+<!-- <ng-container *ngIf="report">
+    <H2>Voici le rapport demandé au {{ report.date | date}}</H2>
+
+
+    <div class="row" *ngFor="let lineappli of report.lineAppli">
+        <div class="col-md-1">
+            <div class="form-group">
+                <P>{{ lineappli.application.name }}</P>
+            </div>
+        </div>
+        <div class="col-md-3">
+            {{ lineappli.etat.label }}
+        </div>
+        <div class="col-md-1">
+            {{ lineappli.comment }}
+        </div>
+
+        <div class="row" *ngFor="let linescenario of lineappli.listReportLineScenario">
+            <div class="col-md-6">
+                {{ linescenario.scenario.name }}
+            </div>
+
+            <div class="col-md-6">
+                {{ linescenario.statut.label }}
+            </div>
+        </div>
+    </div>
+
+
+
+</ng-container> -->
+
+<!-- help lien boostrap : https://getbootstrap.com/docs/4.0/content/tables/ -->
+
+<ng-container *ngIf="!report">
+    <H2>Pas de rapport</H2>
+</ng-container>
+
+
+<ng-container *ngIf="report">
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Application</th>
+                    <th scope="col">Etat Application</th>
+                    <th scope="col">Commentaire Application</th>
+                    <th scope="col">Scénario</th>
+                    <th scope="col">Statut Scénario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let lineappli of report.lineAppli">
+                    <td>{{ lineappli.application.name }}</td>
+                    <td>{{ lineappli.etat.label }}</td>
+                    <!-- a mettre en commentaire a la demo lundi -->
+                    <td> {{ lineappli.comment }}</td>
+                    <!-- a activer a la demo lundi -->
+                    <!-- <td> <textarea class="form-control" rows="1">{{ lineappli.comment }}</textarea></td> -->
+                    <td>
+                        <table class="table" class="table-borderless">
+                            <tbody>
+                                <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
+                                    <td> {{ linescenario.scenario.name }}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                    <td>
+                        <!-- Pas de bordures sur la table bootstrap avec "class="table-borderless"" -->
+                        <table class="table" class="table-borderless">
+                            <tbody>
+                                <!-- a mettre en commentaire a la demo lundi -->
+                                <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
+                                    <td> {{ linescenario.statut.label }}</td>
+
+                                </tr>
+                                <!-- a activer a la demo lundi -->
+                                <!-- <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
+                                    <td>
+                                        <select class="form-control">
+                                            <option>
+                                                {{ linescenario.statut.label }}
+                                            </option>
+                                        </select>
+                                    </td> 
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>

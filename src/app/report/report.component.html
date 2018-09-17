@@ -1,64 +1,127 @@
+<!-- <div class="container-fluid">
 
-<div class="container-fluid">
-
-  <h4>Rapport des applications</h4>
+    <h4>Rapport des applications</h4>
 
 
-  <div class="row">
-    <div class="col-md-2">
-      <h6>Application</h6>
+    <div class="row">
+        <div class="col-md-2">
+            <h6>Application</h6>
 
-    </div>
+        </div>
 
-    <div class="col-md-2">
-      <h6>Etat de l'application</h6>
-    </div>
-    <div class="col-md-2">
-      <h6>Scenario</h6>
-    </div>
-    <div class="col-md-2">
-      <h6>Statut du Scénario</h6>
+        <div class="col-md-2">
+            <h6>Etat de l'application</h6>
+        </div>
+        <div class="col-md-2">
+            <h6>Scenario</h6>
+        </div>
+        <div class="col-md-2">
+            <h6>Statut du Scénario</h6>
 
-    </div>
-    <div class="col-md-2">
-      <h6>Commentaires</h6>
-    </div>
-    <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
+            <h6>Commentaires</h6>
+        </div>
+        <div class="col-md-2">
 
-    </div>
-  </div>
-
-  <div class="row" *ngFor="let reportscenario of reportscenarios">
-    <div class="col-md-2">
-      <div class="form-group">
-          <P>{{ reportscenario.scenario.application.name }} </P>
-      </div>
+        </div>
     </div>
 
-    <div class="col-md-2">
-      <div class="form-group">
-        <!-- <P>{{ reportscenario.reportlineappli.etat }}</P> -->
-        <P>A déterminer </P>     
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <mat-card-content>{{ reportscenario.scenario.name }}</mat-card-content>
-      </div>
-    </div>
-    <div class="col-md-2">
+    <div class="row" *ngFor="let reportscenario of reportscenarios">
+        <div class="col-md-2">
+            <div class="form-group">
+                <P>{{ reportscenario.reportlineappli.application.name}} </P>
+            </div>
+        </div>
 
-      <div class="form-group">
-          <mat-card-content>{{ reportscenario.statut.label }} </mat-card-content>
-        <!-- <mat-card-content (change)="calculateLabelAppli()">{{ reportscenario.statut.label }} </mat-card-content> -->
-        <!-- <mat-card-content [(ngModel)]="reportscenario.statut.id" (change)="calculateLabelAppli()">{{ reportscenario.statut.label }} </mat-card-content> -->
-      </div>
+        <div class="col-md-2">
+            <div class="form-group"> -->
+<!-- <P>{{ reportscenario.reportlineappli.etat }}</P> -->
+<!-- <P>A déterminer </P>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <mat-card-content>{{ reportscenario.scenario.name }}</mat-card-content>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="form-group">
+                <mat-card-content>{{ reportscenario.statut.label }} </mat-card-content> -->
+<!-- <mat-card-content (change)="calculateLabelAppli()">{{ reportscenario.statut.label }} </mat-card-content> -->
+<!-- <mat-card-content [(ngModel)]="reportscenario.statut.id" (change)="calculateLabelAppli()">{{ reportscenario.statut.label }} </mat-card-content> -->
+<!-- </div>
+        </div>
+        <div class="col-md-2"> -->
+<!-- <mat-card-content>{{ reportscenario.reportlineappli.comment }} </mat-card-content> -->
+<!-- <p>commentaire à coder</p>
+        </div>
+        <div class="col-md-2">
+        </div>
     </div>
-    <div class="col-md-2">
-      <!-- <mat-card-content>{{ reportscenario.reportlineappli.comment }} </mat-card-content> -->
-      <p>commentaire à coder</p>
+</div> -->
+
+<ng-container *ngIf="!scenarios">
+    <H2>Pas de rapport</H2>
+</ng-container>
+
+
+<ng-container *ngIf="scenarios">
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Application</th>
+                    <th scope="col">Etat Application</th>
+                    <th scope="col">Commentaire Application</th>
+                    <th scope="col">Scénario</th>
+                    <th scope="col">Statut Scénario</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <!-- <tr *ngFor="let statut of statuts">
+                    <td>{{ statut.scenario.application.name }}</td> -->
+                <tr *ngFor="let application of applications">
+                    <td>{{ application.name }}</td>
+                    <td>Libellé à calculer selon statut scénario</td>
+                    <td> <textarea class="form-control" rows="1">Rien à signaler</textarea></td>
+                    <td>
+                        <table class="table" class="table-borderless">
+                            <tbody>
+                                <tr *ngFor="let scenario of scenarios">
+                                    <!-- <td> {{ scenario.name }}</td> -->
+                                    <td *ngIf="application.id === scenario.application.id"> {{ scenario.name }}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </td>
+                    <td>
+                        <!-- Pas de bordures sur la table bootstrap avec "class="table-borderless"" -->
+                        <table class="table" class="table-borderless">
+                            <tbody>
+                                <!-- <tr *ngFor="let scenario of scenarios">
+                                    <td> {{ scenario.statut }}</td> -->
+                                <tr>
+                                    <td>
+                                        <select class="form-control">
+                                            <option *ngFor="let statut of statuts">
+                                               <P *ngIf="application.id  === statut.scenario.id">{{ statut.label }} </P> 
+                                            </option>
+                                        </select>
+
+                                </tr>
+                                <!-- <tr *ngFor="let statut of statuts">
+                                        <td *ngIf="application.id  === statut.scenario.id">{{statut.label}}</td>
+                                    </tr> -->
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="col-md-2">
-    </div>
-  </div>
-</div>
+</ng-container>

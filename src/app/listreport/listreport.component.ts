@@ -1,6 +1,6 @@
 import { Report } from './../models/report';
 import { Component, OnInit } from '@angular/core';
-import { ReportappliService } from 'src/app/services/reportappli.service';
+import { ReportService } from 'src/app/services/report.service';
 
 @Component({
   selector: 'app-listreport',
@@ -10,12 +10,14 @@ import { ReportappliService } from 'src/app/services/reportappli.service';
 export class ListreportComponent implements OnInit {
 
 reports: Report[];
+// oneReport: Report;
 
-  constructor(private listReportService: ReportappliService) { }
+  constructor(private reportService: ReportService) { }
 
   ngOnInit() {
 
-    this.listReportService.getListReport()
+    console.log('listreport.ts');
+    this.reportService.getListReport()
       .subscribe(
         (data: Report[]) => {
           this.reports = data;
@@ -24,5 +26,16 @@ reports: Report[];
         });
 
   }
+
+  // consultReportAppli(id: number) {
+  //   console.log('methode consultReportAppli avec id : ' + id);
+  //   this.reportService.getConsulReportById(id)
+  //   .subscribe(
+  //     (data: Report) => {
+  //       this.oneReport = data;
+  //       console.log(data);
+
+  //     });
+  // }
 
 }
