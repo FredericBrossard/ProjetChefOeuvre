@@ -2,7 +2,7 @@
 import { Scenario } from 'src/app/models/scenario';
 import { Reportscenario } from 'src/app/models/reportscenario';
 
-export interface Statut {
+export class Statut {
     id: number;
     label: string;
     scenario: Scenario;

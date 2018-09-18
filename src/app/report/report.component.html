@@ -92,7 +92,9 @@
                             <tbody>
                                 <tr *ngFor="let scenario of scenarios">
                                     <!-- <td> {{ scenario.name }}</td> -->
-                                    <td *ngIf="application.id === scenario.application.id"> {{ scenario.name }}</td>
+                                    <td *ngIf="application.id === scenario.application.id">
+                                        {{ scenario.name }}
+                                    </td>
                                 </tr>
 
                             </tbody>
@@ -105,18 +107,21 @@
                             <tbody>
                                 <!-- <tr *ngFor="let scenario of scenarios">
                                     <td> {{ scenario.statut }}</td> -->
-                                <tr>
-                                    <td>
-                                        <select class="form-control">
-                                            <option *ngFor="let statut of statuts">
-                                               <P *ngIf="application.id  === statut.scenario.id">{{ statut.label }} </P> 
-                                            </option>
-                                        </select>
+                                <ng-container *ngFor="let scenario of scenarios">
+                                    <tr *ngIf="application.id === scenario.application.id">
+                                        <td>
+                                            <select class="form-control">
+                                                <ng-container *ngFor="let statut of statuts">
+                                                    <option *ngIf="statut.scenario.id === scenario.id" (change)="calculateLabelAppli(statut.scenario.id)">
+                                                        {{ statut.label }} {{ statut.scenario.id  }}
 
-                                </tr>
-                                <!-- <tr *ngFor="let statut of statuts">
-                                        <td *ngIf="application.id  === statut.scenario.id">{{statut.label}}</td>
-                                    </tr> -->
+                                                    </option>
+                                                </ng-container>
+                                            </select>
+                                        </td>
+
+                                    </tr>
+                                </ng-container>
                             </tbody>
                         </table>
                     </td>
@@ -125,3 +130,11 @@
         </table>
     </div>
 </ng-container>
+<td> <button type="submit" class="btn btn-primar">Créer le rapport</button></td>  
+
+<!-- <form #f="ngForm">
+<mat-form-field>
+    <input matInput type="text" name="firstName" [(ngModel)]="utilisateur.firstName">
+</mat-form-field>
+</form> -->
+<!-- {{ utilisateur.firstName}} -->

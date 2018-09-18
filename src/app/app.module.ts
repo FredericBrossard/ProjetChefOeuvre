@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { ReportComponent } from 'src/app/report/report.component';
 import { ToolComponent } from './tool/tool.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LineComponent } from 'src/app/line/line.component';
 import { ListreportComponent } from 'src/app/listreport/listreport.component';
 import { ConsultreportComponent } from './consultreport/consultreport.component';
@@ -60,6 +60,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot (routes)
   ],
   providers: [],

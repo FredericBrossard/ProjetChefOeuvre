@@ -52,8 +52,9 @@ export class ToolComponent implements OnInit {
           const reportscenario: Reportscenario = {id: null, scenario: null, reportlineappli: null, statut: null};
           for (i = 0; i < this.scenarios.length; i++) {
                       reportscenario.scenario = this.scenarios[i];
-                      console.log(reportscenario.scenario.application);
           }
+          console.log('ici');
+          console.log(reportscenario.scenario.application);
 
         });
 

@@ -26,4 +26,12 @@ export class ReportService {
 
   }
 
+  putReport (report: Report ): Observable<Report> {
+    return this.http.put<Report>(this.API_URL_REPORT, report);
+ }
+
+//  create(foodAliment: Foods ): Observable<Foods> {
+//       return this.http.post<Foods>(this.API_URL, foodAliment);
+//  }
+
 }

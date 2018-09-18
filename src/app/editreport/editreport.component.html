@@ -1,4 +1,3 @@
-
 <ng-container *ngIf="!report">
   <H2>Pas de rapport</H2>
 </ng-container>
@@ -6,59 +5,65 @@
 
 <ng-container *ngIf="report">
   <div class="table-responsive">
-      <table class="table">
-          <thead class="thead-dark">
-              <tr>
-                  <th scope="col">Application</th>
-                  <th scope="col">Etat Application</th>
-                  <th scope="col">Commentaire Application</th>
-                  <th scope="col">Scénario</th>
-                  <th scope="col">Statut Scénario</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let lineappli of report.lineAppli">
-                  <td>{{ lineappli.application.name }}</td>
-                  <td>{{ lineappli.etat.label }}</td>
-                  <!-- a mettre en commentaire a la demo lundi -->
-                  <!-- <td> {{ lineappli.comment }}</td> -->
-                  <!-- a activer a la demo lundi -->
-                  <td> <textarea class="form-control" rows="1">{{ lineappli.comment }}</textarea></td>
-                  <td>
-                      <table class="table" class="table-borderless">
-                          <tbody>
-                              <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
-                                  <td> {{ linescenario.scenario.name }}</td>
-
-                              </tr>
-                          </tbody>
-                      </table>
-
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Application</th>
+          <th scope="col">Etat Application</th>
+          <th scope="col">Commentaire Application</th>
+          <th scope="col">Scénario</th>
+          <th scope="col">Statut Scénario</th>
+          <th scope="col">enregistrer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lineappli of report.lineAppli">
+          <td>{{ lineappli.application.name }}</td>
+          <td>{{ lineappli.etat.label }}</td>
+          <!-- a mettre en commentaire a la demo lundi -->
+          <!-- <td> {{ lineappli.comment }}</td> -->
+          <!-- a activer a la demo lundi -->
+          <td> <textarea class="form-control" rows="1" name="lineappli.comment" [(ngModel)]="lineappli.comment">{{ lineappli.comment }}</textarea></td>
+          <td>
+            <table class="table" class="table-borderless">
+              <tbody>
+                <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
+                  <td> {{ linescenario.scenario.name }}
+                    
                   </td>
-                  <td>
-                      <!-- Pas de bordures sur la table bootstrap avec "class="table-borderless"" -->
-                      <table class="table" class="table-borderless">
-                          <tbody>
-                              <!-- a mettre en commentaire a la demo lundi -->
-                              <!-- <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
-                                  <td> {{ linescenario.statut.label }}</td>
 
-                              </tr> -->
-                              <!-- a activer a la demo lundi -->
-                              <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
-                                  <td>
-                                      <select class="form-control">
-                                          <option>
-                                              {{ linescenario.statut.label }}
-                                          </option>
-                                      </select>
-                                  </td> 
-                              </tr>
-                          </tbody>
-                      </table>
+                </tr>
+              </tbody>
+            </table>
+
+          </td>
+          <td>
+            <!-- Pas de bordures sur la table bootstrap avec "class="table-borderless"" -->
+            <table class="table" class="table-borderless">
+              <tbody>
+                <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
+                  <td>
+                      <!-- name="statut.label" [(ngModel)]="statut.label" permet de gérer la mise à jour dynamique de l'objet report -->
+                    <select class="form-control" [(ngModel)]="linescenario.statut.id" name="statut.label" [(ngModel)]="statut.label">
+                      <!-- <option *ngFor="let statut of this.statutService.getStatutByScenario(linescenario.scenario.id) | async"> -->
+                      <ng-container *ngFor="let statut of statuts">
+                        <!-- <option *ngIf="statut.scenario.id === linescenario.scenario.id" ng-selected="statut.id == linescenario.statut.id"> -->
+                            <option *ngIf="statut.scenario.id === linescenario.scenario.id" [ngValue]="statut.id">
+                          <!-- {{ statut.label }} {{statut.id }} {{ linescenario.statut.id }} {{ statut.id == linescenario.statut.id }} -->
+                          {{ statut.label }}
+                        </option>
+                      </ng-container>
+                    </select>
                   </td>
-              </tr>
-          </tbody>
-      </table>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </ng-container>
+<button type="submit" class="btn btn-primar"  (click)="saveReport(report)" >Save le rapport</button>
+<!-- {{ report | json}} -->

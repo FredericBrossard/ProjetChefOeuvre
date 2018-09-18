@@ -24,6 +24,9 @@ export class ReportComponent implements OnInit {
 
   applications: Application[];
   statuts: Statut[];
+
+  utilisateur: { firstName: null, name: null};
+
   // scenarioNetCredit: {'Page d accueil', 'Offre Alternative', 'Utilisation de carte', 'Entrée dossier papier'};
   // scenarioNetDemat: {'Entrée dossier Demat'};
   // scenarioODEJ: {'Automobile', 'Distribution'};
@@ -85,6 +88,22 @@ export class ReportComponent implements OnInit {
   }
 
 
+// methode qui calcul le "label de l'application" en fonction du "label du scenario" choisi par l'utilisateur
+calculateLabelAppli(id: number) {
+console.log(id);
+  //   if (id = '1') {
+  //  // Ouvert
+  //    this.rapportapplis. = '1';
+  //    }
+  //  // Service indisponible, l incident est en cours d analyse par les équipes
+  //    if (this.reportscenarios.statut.id = '2') {
+  //    this.reportapplis.etat.id = '2';
+  //    }
+  //    // Accès à l application limité, diagnostic en cours
+  //    if (this.statuts. = '3') {
+  //    this.reportapplis.etat.id = '3';
+  //    }
 
   }
 
+}
