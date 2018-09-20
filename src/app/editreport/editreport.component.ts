@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { Report } from 'src/app/models/report';
 import { ReportService } from 'src/app/services/report.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-editreport',
@@ -78,6 +77,37 @@ export class EditreportComponent implements OnInit {
 
       });
   }
+
+  createReport(report: Report) {
+    console.log('methode createReport', report);
+    const date = new Date();
+    this.report.id = null;
+    this.report.date = date;
+    this.reportService.postReport1(report)
+    .subscribe(
+      (data: Report) => {
+        this.report = data;
+        console.log(this.report);
+
+      });
+  }
+
+  // methode qui calcul le "label de l'application" en fonction du "label du scenario" choisi par l'utilisateur
+calculateLabelAppli(id: number) {
+  console.log('calculateLabelAppli id=', id, this.report);
+      if (id = 29) {
+     // Ouvert
+       this.report.lineAppli[5].etat.id = 1;            }
+    //  // Service indisponible, l incident est en cours d analyse par les équipes
+    //    if (this.lineappli.etat.label = '2') {
+    //    this.reportapplis.etat.id = '2';
+    //    }
+    //    // Accès à l application limité, diagnostic en cours
+    //    if (this.statuts. = '3') {
+    //    this.reportapplis.etat.id = '3';
+    //    }
+
+    }
 
 }
 

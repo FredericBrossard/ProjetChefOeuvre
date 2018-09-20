@@ -8,6 +8,7 @@ import { Scenario } from 'src/app/models/scenario';
 import { ApplicationService } from 'src/app/services/application.service';
 import { Statut } from 'src/app/models/statut';
 import { StatutService } from 'src/app/services/statut.service';
+import { Report } from 'src/app/models/report';
 
 
 @Component({
@@ -26,6 +27,8 @@ export class ReportComponent implements OnInit {
   statuts: Statut[];
 
   utilisateur: { firstName: null, name: null};
+
+  report: Report;
 
   // scenarioNetCredit: {'Page d accueil', 'Offre Alternative', 'Utilisation de carte', 'Entrée dossier papier'};
   // scenarioNetDemat: {'Entrée dossier Demat'};
@@ -52,13 +55,16 @@ export class ReportComponent implements OnInit {
           this.scenarios = data;
           console.log('senar:');
           console.log(data);
+
         });
+
         this.applicationService.getAllApplication()
       .subscribe(
         (appli: Application[]) => {
         this.applications = appli;
         console.log('appli :');
         console.log(appli);
+
       });
 
       this.statutService.getAllStatut()
@@ -67,8 +73,19 @@ export class ReportComponent implements OnInit {
           this.statuts = data;
           console.log('statut : ');
           console.log(data);
-          // this.reportscenarios.statut = this.statuts;
+
         });
+
+        let i: number;
+        for (i = 0; i < this.applications.length; i++) {
+
+          this.report.lineAppli[i].etat.id = this.scenarios[i].id;
+}
+
+  // for (const scenario of this.scenarios ) {
+  //           const reportScenario: Reportscenario = {id: null, reportlineappli: null, scenario: scenario, statut: null};
+  //           this.report.push(scenario);
+  //         }
 
         // let i: number;
         //   const scenarioNetCredit: Scenario = null;

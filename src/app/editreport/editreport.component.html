@@ -2,8 +2,9 @@
   <H2>Pas de rapport</H2>
 </ng-container>
 
-
 <ng-container *ngIf="report">
+  <!-- <h3>Vous éditez le rapport Patrimoine du {{report.date | date}}</h3> -->
+  <h3>Vous éditez le rapport Patrimoine du {{ report.date | date: 'mediumDate' }}</h3>
   <div class="table-responsive">
     <table class="table">
       <thead class="thead-dark">
@@ -13,7 +14,6 @@
           <th scope="col">Commentaire Application</th>
           <th scope="col">Scénario</th>
           <th scope="col">Statut Scénario</th>
-          <th scope="col">enregistrer</th>
         </tr>
       </thead>
       <tbody>
@@ -29,7 +29,7 @@
               <tbody>
                 <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
                   <td> {{ linescenario.scenario.name }}
-                    
+
                   </td>
 
                 </tr>
@@ -43,12 +43,13 @@
               <tbody>
                 <tr *ngFor="let linescenario of lineappli.listReportLineScenario">
                   <td>
-                      <!-- name="statut.label" [(ngModel)]="statut.label" permet de gérer la mise à jour dynamique de l'objet report -->
-                    <select class="form-control" [(ngModel)]="linescenario.statut.id" name="statut.label" [(ngModel)]="statut.label">
+                    <!-- name="statut.label" [(ngModel)]="statut.label" permet de gérer la mise à jour dynamique de l'objet report -->
+                    <select class="form-control" [(ngModel)]="linescenario.statut.id" name="statut.label" [(ngModel)]="statut.label"
+                      (change)="calculateLabelAppli(linescenario.statut.id)">
                       <!-- <option *ngFor="let statut of this.statutService.getStatutByScenario(linescenario.scenario.id) | async"> -->
                       <ng-container *ngFor="let statut of statuts">
                         <!-- <option *ngIf="statut.scenario.id === linescenario.scenario.id" ng-selected="statut.id == linescenario.statut.id"> -->
-                            <option *ngIf="statut.scenario.id === linescenario.scenario.id" [ngValue]="statut.id">
+                        <option *ngIf="statut.scenario.id === linescenario.scenario.id" [ngValue]="statut.id">
                           <!-- {{ statut.label }} {{statut.id }} {{ linescenario.statut.id }} {{ statut.id == linescenario.statut.id }} -->
                           {{ statut.label }}
                         </option>
@@ -59,11 +60,17 @@
               </tbody>
             </table>
           </td>
-          <td></td>
         </tr>
       </tbody>
     </table>
   </div>
 </ng-container>
-<button type="submit" class="btn btn-primar"  (click)="saveReport(report)" >Save le rapport</button>
+<div class="row">
+    <div class=col-md-2 col-md-offset-5>
+    <button type="submit" class="btn btn-primar" (click)="saveReport(report)">Save le rapport</button>
+  </div>
+  <!-- <div>
+    <button type="submit" class="btn btn-primar" (click)="createReport(report)">Créer un new rapport</button>
+  </div> -->
+</div>
 <!-- {{ report | json}} -->

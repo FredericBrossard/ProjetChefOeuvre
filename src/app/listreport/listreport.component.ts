@@ -1,3 +1,4 @@
+import { Routes, Router } from '@angular/router';
 import { Report } from './../models/report';
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from 'src/app/services/report.service';
@@ -9,10 +10,14 @@ import { ReportService } from 'src/app/services/report.service';
 })
 export class ListreportComponent implements OnInit {
 
-reports: Report[];
-// oneReport: Report;
+  reports: Report[];
+  report: Report;
+
+  // oneReport: Report;
 
   constructor(private reportService: ReportService) { }
+
+
 
   ngOnInit() {
 
@@ -27,6 +32,10 @@ reports: Report[];
 
   }
 
+  createReport() {
+    console.log('methode createReport dans listreport.ts');
+    this.reportService.createtReport();
+  }
   // consultReportAppli(id: number) {
   //   console.log('methode consultReportAppli avec id : ' + id);
   //   this.reportService.getConsulReportById(id)
