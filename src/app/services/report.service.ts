@@ -47,4 +47,13 @@ export class ReportService {
 
   }
 
+  sendEmail(report: Report) {
+    console.log('methode sendMail du ReportappliService');
+    return this.http.get(this.API_URL_REPORT + '/sendmail')
+    .subscribe(
+      (answer) => {
+        console.log(answer);
+      });
+  }
+
 }

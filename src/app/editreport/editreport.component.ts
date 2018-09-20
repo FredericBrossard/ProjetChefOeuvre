@@ -92,6 +92,10 @@ export class EditreportComponent implements OnInit {
       });
   }
 
+  envoiEmail (report: Report) {
+    this.reportService.sendEmail(report);
+  }
+
   // methode qui calcul le "label de l'application" en fonction du "label du scenario" choisi par l'utilisateur
 calculateLabelAppli(id: number) {
   console.log('calculateLabelAppli id=', id, this.report);

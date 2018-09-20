@@ -66,8 +66,14 @@
   </div>
 </ng-container>
 <div class="row">
-    <div class=col-md-2 col-md-offset-5>
-    <button type="submit" class="btn btn-primar" (click)="saveReport(report)">Save le rapport</button>
+  <div>
+    <button type="submit" class="btn btn-primar" (click)="saveReport(report)">Enregistrer le rapport</button>
+  </div>
+  <div>
+
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primar" (click)="envoiEmail(report)">Informer par email</button>
   </div>
   <!-- <div>
     <button type="submit" class="btn btn-primar" (click)="createReport(report)">Créer un new rapport</button>
