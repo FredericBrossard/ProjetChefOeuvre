@@ -16,18 +16,102 @@
 </div>
 </div> -->
 
-<div class="table-responsive">
-  <ng-container *ngIf="applications">
-    <table class="table">
-      <thead class="thead-dark">
+<!-- class="container" permet de ne pas étendre le contenu sur toute la largeur de la page -->
+
+<div class="container">
+  <div class="table-responsive">
+    <ng-container *ngIf="applications">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Liste des Applications</th>
+            <th scope="col">Etat du jour</th>
+        </thead>
+        <tbody>
+          <!-- class="table-borderless" : supprime les bordures ligne -->
+          <tr *ngFor="let application of applications" class="table-borderless">
+            <td>{{ application.name }}</td>
+            <!-- <td class="material-icons">thumb_up</td>                                    https://material.io/tools/icons/?icon=rowing&style=baseline -->
+            <td class="material-icons"> mood</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  </div>
+</div>
+
+
+<div class="text-center">
+  <img src="assets/CreditoBNPPF.jpg" class="img-fluid" alt="Responsive image">
+</div>
+
+
+<div class="container">
+  <div class="text-center">
+    <h4> Team Planning de réalisation du suivi hébdomadaire</h4>
+    <table class="table table-sm table-dark">
+      <thead>
         <tr>
-          <th scope="col">Liste des Application</th>
+          <th scope="col">Qui</th>
+          <th scope="col">Quand</th>
+        </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let application of applications">
-          <td>{{ application.name }}</td>
+      <tbody class="bg-success">
+        <tr>
+          <td>Florian</td>
+          <td>Lundi</td>
+        </tr>
+        <tr>
+          <td>Benjamin</td>
+          <td>Mardi</td>
+        </tr>
+        <tr>
+          <td>Cécile</td>
+          <td>Mercredi</td>
+        </tr>
+        <tr>
+          <td>Jessica</td>
+          <td>jeudi</td>
+        </tr>
+        <tr>
+          <td>Romain</td>
+          <td>Vendredii</td>
+        </tr>
+        <tr>
+          <td>Sophie</td>
+          <td>Samedi</td>
+        </tr>
+        <tr>
+          <td>Abder</td>
+          <td>Dimanche</td>
         </tr>
       </tbody>
     </table>
-  </ng-container>
+  </div>
 </div>
+<!-- target="_blank" permet d'ouvrir le lien dans une nouvelle fenêtre -->
+<!-- https://portail.witbe.net/wib-prod/synthesis/supervision.do?login=PRESCRIP&password=prescrip2pf -->
+  <!-- https://portail.witbe.net/wib-prod/synthesis/supervision.do?login=PRESCRIP&password=prescrip2pf -->
+<p>Pour consulter les Applications de l'ensemble de la production PF, la console supervision <a href="https://openclassrooms.com" 
+    target="_blank">WitBe</a>. Pour accéder à la <a href="https://openclassrooms.com" target="_blank">Buisness Place
+    Distrib&Démat</a>.</p>
+<!-- Modal
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

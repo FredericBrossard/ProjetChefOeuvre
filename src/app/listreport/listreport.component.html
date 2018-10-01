@@ -27,26 +27,35 @@
   </div> 
 
 </div>-->
-<td> <button type="submit" class="btn btn-primar" (click)="createReport()">Créer le rapport du jour</button></td> 
-<div class="table-responsive">
-    <ng-container *ngIf="reports">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Liste des Rapports</th>
-                    <th scope="col"></th>
-                    <th scope="col">Cliquer pour le détail</th>
-                    <th scope="col">Cliquer pour modifier</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let listdatereport of reports">
-                    <td>{{ listdatereport.date | date }}</td>
-                    <td></td>
-                    <td> <button type="submit" class="btn btn-primar" [routerLink]="'/consultreport/' + listdatereport.id">Consulter le rapport</button></td>   
-                    <td> <button type="submit" class="btn btn-primar" [routerLink]="'/editreport/' + listdatereport.id">Editer le rapport</button></td>          
-                </tr>
-            </tbody>
-        </table>
-    </ng-container>
-    </div>
+<div >
+  <div>
+    <td> <button type="submit" class=" bouton" (click)="createReport()">Créer le rapport du jour</button></td>
+  </div>
+</div>
+
+<div class="table-responsive{-sm|-md|-lg|-xl}">
+  <ng-container *ngIf="reports">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Liste de Rapport</th>
+          <!-- <th scope="col"></th> -->
+          <th scope="col">Visualiser le détail</th>
+          <th scope="col">Mettre à jour</th>
+          <th scope="col">Envoi Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let listdatereport of reports">
+          <td>{{ listdatereport.date | date: 'longDate' }}</td>
+          <!-- <td></td> -->
+          <!-- <td> <button type="submit" class="btn btn-primar" [routerLink]="'/consultreport/' + listdatereport.id">Consulter le rapport</button></td>    -->
+          <td> <button type="submit" class="btn btn-success" [routerLink]="'/consultreport/' + listdatereport.id">Consulter</button></td>
+          <td> <button type="submit" class="btn btn-success" [routerLink]="'/editreport/' + listdatereport.id">Editer</button></td>
+          <td> <button type="submit" class="btn btn-success" (click)="envoiEmail(listdatereport.id)">Email</button></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>

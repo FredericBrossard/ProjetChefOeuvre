@@ -13,6 +13,9 @@ export class ReportService {
   API_URL_REPORT = 'http://localhost:8090/suivireport';
 
 
+
+  emailAdresseDesti = 'wavefred@hotmail.com';
+
   constructor(private http: HttpClient, private router: Router) { }
 
 
@@ -47,13 +50,18 @@ export class ReportService {
 
   }
 
-  sendEmail(report: Report) {
-    console.log('methode sendMail du ReportappliService');
-    return this.http.get(this.API_URL_REPORT + '/sendmail')
-    .subscribe(
-      (answer) => {
-        console.log(answer);
-      });
+  // sendEmail(report: Report): Observable<Boolean> {
+  //   console.log('methode sendMail du ReportappliService');
+  //   return this.http.get<Boolean>(this.API_URL_REPORT + '/sendmail');
+  // }
+
+  sendEmail(id: number): Observable<Boolean> {
+
+
+    console.log('methode "sendMail" du ReportappliService avec report.id:', id, this.emailAdresseDesti );
+
+    // return this.http.post<Boolean>(this.API_URL_REPORT + '/sendmail', {Report: report.id, String: emailAdresse});
+    return this.http.post<Boolean>(this.API_URL_REPORT + '/sendmail', { id: id,   emailAdresseDesti: this.emailAdresseDesti  });
   }
 
 }
