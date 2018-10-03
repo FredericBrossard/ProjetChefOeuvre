@@ -174,9 +174,9 @@ export class EditreportComponent implements OnInit {
             break;
 
           case 2:
-          case 8:
-          case 5:
-          case 11:
+          case 4:
+          case 7:
+          case 10:
 
             cptIncident = cptIncident + 1;
             console.log('cptIncidentt :' + cptIncident, 'indice:' + indice);
@@ -218,7 +218,7 @@ export class EditreportComponent implements OnInit {
             }
             break;
 
-          case 14:
+          case 13:
 
             cptIncident = cptIncident + 1;
             console.log('cptIncidentt :' + cptIncident, 'indice:' + indice);
@@ -261,8 +261,8 @@ export class EditreportComponent implements OnInit {
             }
             break;
 
-          case 17:
-          case 20:
+          case 16:
+          case 19:
 
             cptIncident = cptIncident + 1;
             console.log('cptIncidentt :' + cptIncident, 'indice:' + indice);
@@ -305,7 +305,7 @@ export class EditreportComponent implements OnInit {
             }
             break;
 
-          case 23:
+          case 22:
 
             cptIncident = cptIncident + 1;
             console.log('cptIncidentt :' + cptIncident, 'indice:' + indice);
@@ -347,7 +347,7 @@ export class EditreportComponent implements OnInit {
             break;
 
           case 25:
-          case 28:
+          case 27:
 
             cptIncident = cptIncident + 1;
             console.log('cptIncidentt :' + cptIncident, 'indice:' + indice);
@@ -387,7 +387,7 @@ export class EditreportComponent implements OnInit {
             }
             break;
 
-          case 31:
+          case 30:
 
             cptIncident = cptIncident + 1;
             console.log('cptIncidentt :' + cptIncident, 'indice:' + indice);
