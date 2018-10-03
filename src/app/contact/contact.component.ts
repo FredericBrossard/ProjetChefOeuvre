@@ -1,6 +1,8 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
+import { Form } from 'src/app/models/form';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,23 +10,77 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  contactForm: FormGroup; // represente tt le formulaire
-  // Création d un objet
-  // contactForm = { nom: '', prenom: '', commentaire: '', email: '' };
+  contactForm: FormGroup; // represente tout le formulaire
 
-  constructor(private fb: FormBuilder) { }
+  // Declaration d'un objet de type Form
+  form: Form;
+
+  constructor(private fb: FormBuilder, private contactService: ContactService) { }
 
   ngOnInit() {
     this.createForm();
   }
-// Méthode de creation du formulaire
+
+  // Méthode de creation du formulaire et Création d un objet
   createForm() {
-    this.contactForm = this.fb.group ({
+    this.contactForm = this.fb.group({
       email: '',
       objet: '',
       message: ''
-
     });
 
   }
+
+  // Méthode d'envoi du formulaire via la back de l'application
+  sendMessageBack() {
+    console.log('méthode sendMessageBack:', this.contactForm.value.message);
+    alert('méthode sendMessageBack');
+    this.form.email = this.contactForm.value['email'];
+    alert('aaaaa constitution form');
+    this.form.message = this.contactForm.value['message'];
+    this.form.objet = this.contactForm.value['objet'];
+
+    alert('apres constitution form');
+    this.contactService.sendForm(this.form).subscribe((formSendStatus: Boolean) => {
+      if (formSendStatus) {
+        alert('Email envoyé');
+      }
+    }, (error) => {
+      alert('Email no envoyé suite à une erreur technique');
+    }
+    );
+
+
+  }
+
+  // Méthode d'envoi du formulaire via la front de l'application
+  sendMessageFront() {
+    console.log('méthode sendMessage:', this.contactForm.value.message);
+    // const email = require('./path/to/emailjs/email');
+    // const server = email.server.connect({
+    //   user: 'username',
+    //   password: 'password',
+    //   host: 'smtp-mail.outlook.com',
+    //   tls: { ciphers: 'SSLv3' }
+    // });
+
+    const message = {
+      text: 'Test envoi mail depuis le Front',
+      from: 'frederic.brossard.pf1@gmail.com>',
+      // to: 'wavefred@hotmail.com, another <another@your-email.com>',
+      to: 'wavefred@hotmail.com',
+      // cc: 'else <else@your-email.com>',
+      subject: 'testing emailjs',
+      //  attachment:
+      //  [
+      //     {data:"<html>i <i>hope</i> this works!</html>", alternative:true},
+      //     {path:"path/to/file.zip", type:"application/zip", name:"renamed.zip"}
+      //  ]
+    };
+
+    // send the mes sage and get a callback with an error or details of the message that was sent
+    // tslint:disable-next-line:no-shadowed-variable
+    // server.send(message, function (err, message) { console.log(err || message); });
+  }
+
 }

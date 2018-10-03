@@ -5,12 +5,12 @@
     </div>
     <div class="col-md-5">
       <div class="col .mr-auto">
-        <h4>Vous pouvez nous contacter.</h4>
+        <h4>Vous pouvez nous contacter :</h4>
         <ul>
-          <li>Soit via la liste de diffusion LIST.PFT.PATRIMOINEDISTRIBDEMAT@bnpparibas-pf.com </li>
-          <li>Soit via ce formulaire</li>
+          <li>Soit sur la liste de diffusion List.patrimoinedistribdemat@bnpparibas-pf.com </li>
+          <li>Soit avec ce formulaire</li>
         </ul>
-        <form [formGroup] ="contactForm">
+        <form [formGroup] ="contactForm" (submit)="sendMessageBack()">
           <div class="form-group">
             <label>Votre email</label>
             <input type="email" class="form-control" placeholder="Entrer email" formControlName="email">

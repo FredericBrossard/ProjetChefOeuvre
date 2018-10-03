@@ -64,4 +64,5 @@ export class ReportService {
     return this.http.post<Boolean>(this.API_URL_REPORT + '/sendmail', { id: id,   emailAdresseDesti: this.emailAdresseDesti  });
   }
 
+
 }

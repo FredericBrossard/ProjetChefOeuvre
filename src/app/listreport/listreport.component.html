@@ -27,11 +27,36 @@
   </div> 
 
 </div>-->
-<div >
-  <div>
-    <td> <button type="submit" class=" bouton" (click)="createReport()">Créer le rapport du jour</button></td>
+
+<div class="row">
+
+  <div class="col-md-1">
+    <br>
+  </div>
+  <br>
+  <div class="col-md-1">
+    <br>
+    <img src="assets/creditoMain.jpg" class="img-fluid" alt="Responsive image">
+    <!-- <br>
+      <p class="material-icons"> build</p> -->
+  </div>
+  <div class="col-md-2">
+    <br>
+    <br>
+    <button type="submit" class="btn btn-success" (click)="createReport()">Créer le rapport du jour</button>
+  </div>
+  <div class="col-md-8">
+    <br>
   </div>
 </div>
+<br>
+<!-- <div >
+    <br>
+  <div>
+    <td> <button type="submit" class="btn btn-success" (click)="createReport()">Créer le rapport du jour</button></td>
+  </div>
+  <br>
+</div> -->
 
 <div class="table-responsive{-sm|-md|-lg|-xl}">
   <ng-container *ngIf="reports">
