@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Application } from './../models/application';
-import { StatutService } from 'src/app/services/statut.service';
 import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
@@ -9,6 +8,8 @@ import { ApplicationService } from 'src/app/services/application.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  photoAccueil = 'assets/CreditoBNPPF.jpg';
 
   constructor(public applicationService: ApplicationService) { }
 

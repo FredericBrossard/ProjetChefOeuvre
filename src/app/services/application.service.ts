@@ -14,7 +14,7 @@ export class ApplicationService {
   API_URL = 'http://localhost:8090/suiviappli';
 
   constructor(private http: HttpClient) {}
-
+// Méthode qui récupére la liste des applications. Construction de la requête get + URL
   getAllApplication(): Observable<Application[]> {
     console.log('methode getAllApplication du service');
     return this.http.get<Application[]>(this.API_URL);

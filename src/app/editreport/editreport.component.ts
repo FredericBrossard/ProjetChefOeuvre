@@ -22,7 +22,6 @@ export class EditreportComponent implements OnInit {
   constructor(private reportService: ReportService,
     private route: ActivatedRoute,
     public statutService: StatutService,
-    private stateService: StateService,
     private router: Router) {
 
     // methode d'ecoute de changement de route. recupération de l'ID dans l'URL
@@ -42,14 +41,6 @@ export class EditreportComponent implements OnInit {
           this.statuts = data;
           console.log(data);
         });
-
-    // this.stateService.getAllState()
-    //   .subscribe(
-    //     (data: State[]) => {
-    //       this.states = data;
-    //       console.log(data);
-    //     });
-
 
   }
 
@@ -80,16 +71,16 @@ export class EditreportComponent implements OnInit {
 
   }
 
+
   // tslint:disable-next-line:max-line-length
-  // Methode de mise à jour du report en cours d'édition avec une gestion de message utilisateur son forme de pop up pour indiquer que le rapport est créé ou pas.
-  // J'aurais voulu une gestion pop up selon boolean issu du back
+  // Methode de mise à jour du report en cours d'édition avec une gestion de message utilisateur sous forme de pop up pour indiquer que le rapport
+  // est créé ou pas.
   saveReport(report: Report) {
     console.log('methode saveReport', report);
     this.reportService.putReport(report)
       .subscribe(
         (data: Report) => {
           this.report = data;
-          console.log(this.report);
           if (report.id != null) {
             this.router.navigateByUrl('/listreport');
             alert('Enregitrement du rapport effectué');
@@ -97,14 +88,6 @@ export class EditreportComponent implements OnInit {
             alert('Enregistrement du rapport non effectué');
           }
         });
-    // (saveReport: Boolean) => {
-    //   if (saveReport) {
-    //     alert('Enregistrement effectif');
-    //   }
-    // },
-    // (error) => {
-    //   alert('Enregistrement non effectué');
-
   }
 
   createReport(report: Report) {

@@ -20,9 +20,7 @@
         <tr *ngFor="let lineappli of report.lineAppli">
           <td>{{ lineappli.application.name }}</td>
           <td>{{ lineappli.etat.label }}</td>
-          <!-- a mettre en commentaire a la demo lundi -->
-          <!-- <td> {{ lineappli.comment }}</td> -->
-          <!-- a activer a la demo lundi -->
+          <!-- saisie de commentaire avec mise à jour de la propriété comment de l'objet en dynamique grace à ngModel -->
           <td> <textarea class="form-control" rows="2" name="lineappli.comment" [(ngModel)]="lineappli.comment">{{ lineappli.comment }}</textarea></td>
           <td>
             <table class="table" class="table-borderless">

@@ -20,8 +20,7 @@ export class ConsultreportComponent implements OnInit {
 // methode d'ecoute de changement de route. recupération de l'ID dans l'URL
   this.route.params.subscribe(params => {
     if (params.hasOwnProperty('id')) {
-      this.consultReportAppli(+params['id']);
-      // this.reportId = +params['id'];
+      this.consultReportAppli(+params['id']); // (+) converts string 'id' to a number
     }
   });
 

@@ -26,28 +26,14 @@ export class ReportComponent implements OnInit {
   applications: Application[];
   statuts: Statut[];
 
-  utilisateur: { firstName: null, name: null};
-
   report: Report;
 
-  // scenarioNetCredit: {'Page d accueil', 'Offre Alternative', 'Utilisation de carte', 'Entrée dossier papier'};
-  // scenarioNetDemat: {'Entrée dossier Demat'};
-  // scenarioODEJ: {'Automobile', 'Distribution'};
-
-  // reportService est de type "HistoreportService"
   constructor(private reportscenarioService: ReportscenarioService,
               private scenarioService: ScenarioService,
               private applicationService: ApplicationService,
               private statutService: StatutService) { }
 
   ngOnInit() {
-
-    // this.reportscenarioService.getReport()
-    //   .subscribe(
-    //     (data: Reportscenario[]) => {
-    //       this.reportscenarios = data;
-    //       console.log(data);
-    //     });
 
         this.scenarioService.getAllScenario()
       .subscribe(

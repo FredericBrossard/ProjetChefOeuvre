@@ -20,11 +20,11 @@ import { ConsultreportComponent } from './consultreport/consultreport.component'
 import { EditreportComponent } from './editreport/editreport.component';
 
 const routes: Routes = [
-  { path: '' , component: HomeComponent },
-  { path: 'home' , component: HomeComponent },
-  { path: 'report' , component: ReportComponent},
-  { path: 'tool' , component: ToolComponent },
-  { path: 'line' , component: LineComponent },
+  { path: '' , component: HomeComponent },        // localhost:4200
+  { path: 'home' , component: HomeComponent },    // localhost:4200/home
+  { path: 'report' , component: ReportComponent}, // localhost:4200/report
+  // { path: 'tool' , component: ToolComponent },
+  // { path: 'line' , component: LineComponent },
   { path: 'contact' , component: ContactComponent },
   { path: 'listreport' , component: ListreportComponent },
   { path: 'consultreport/:id' , component: ConsultreportComponent },

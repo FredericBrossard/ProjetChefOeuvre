@@ -12,8 +12,9 @@ import { ContactService } from '../services/contact.service';
 export class ContactComponent implements OnInit {
   contactForm: FormGroup; // represente tout le formulaire
 
-  // Declaration d'un objet de type Form
-  form: Form;
+
+  // Declaration d'un objet de type Form (form: Form) et création de l'objet en ajoutant ( = { email: '', message: '', objet: '' } )
+  form: Form = { email: '', message: '', objet: '' };
 
   constructor(private fb: FormBuilder, private contactService: ContactService) { }
 
@@ -34,19 +35,18 @@ export class ContactComponent implements OnInit {
   // Méthode d'envoi du formulaire via la back de l'application
   sendMessageBack() {
     console.log('méthode sendMessageBack:', this.contactForm.value.message);
-    alert('méthode sendMessageBack');
     this.form.email = this.contactForm.value['email'];
-    alert('aaaaa constitution form');
     this.form.message = this.contactForm.value['message'];
     this.form.objet = this.contactForm.value['objet'];
-
-    alert('apres constitution form');
     this.contactService.sendForm(this.form).subscribe((formSendStatus: Boolean) => {
+      console.log('formSendStatus:', formSendStatus);
       if (formSendStatus) {
         alert('Email envoyé');
+        console.log('formSendStatus:', formSendStatus);
       }
     }, (error) => {
       alert('Email no envoyé suite à une erreur technique');
+      console.log('error:', error);
     }
     );
 
