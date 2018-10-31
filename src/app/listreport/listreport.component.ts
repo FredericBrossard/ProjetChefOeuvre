@@ -75,10 +75,12 @@ export class ListreportComponent implements OnInit {
     this.reportService.sendEmail(id).subscribe((mailSendStatus: Boolean) => {
 
       if (mailSendStatus) {
+        console.log(mailSendStatus);
         alert('Email envoyé');
       }
     }, (error) => {
       alert('Email non envoyé suite à une erreur technique');
+      // alert('Email envoyé.');
     }
     );
 

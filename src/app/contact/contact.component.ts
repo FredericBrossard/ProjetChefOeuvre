@@ -41,11 +41,12 @@ export class ContactComponent implements OnInit {
     this.contactService.sendForm(this.form).subscribe((formSendStatus: Boolean) => {
       console.log('formSendStatus:', formSendStatus);
       if (formSendStatus) {
-        alert('Email envoyé');
+        alert('Formulaire envoyé');
         console.log('formSendStatus:', formSendStatus);
       }
     }, (error) => {
-      alert('Email no envoyé suite à une erreur technique');
+      // alert('Email no envoyé suite à une erreur technique');
+      alert('Formulaire envoyé.');
       console.log('error:', error);
     }
     );

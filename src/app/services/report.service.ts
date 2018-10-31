@@ -12,9 +12,8 @@ export class ReportService {
   // Adresse URL qui permet d’aller chercher l’information "report"
   API_URL_REPORT = 'http://localhost:8090/suivireport';
 
-
-
-  emailAdresseDesti = 'wavefred@hotmail.com';
+  // emailAdresseDesti = 'wavefred@hotmail.com';
+  emailAdresseDesti = 'patrimoinebnp@gmail.com';
 
   constructor(private http: HttpClient, private router: Router) { }
 

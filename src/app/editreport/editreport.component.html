@@ -43,7 +43,6 @@
                   <td>
                     <!-- name="statut.label" [(ngModel)]="statut.label" permet de gérer la mise à jour dynamique de l'objet report -->
                     <select class="form-control" [(ngModel)]="linescenario.statut.id" name="statut.label" [(ngModel)]="statut.label"
-                     
                       (change)="calculateLabelAppli(linescenario.statut.id, lineappli.application.id)">
                       <!-- (change)="calculateLabelAppli(linescenario.statut.id, lineappli.application.id)"> -->
                       <!-- <option *ngFor="let statut of this.statutService.getStatutByScenario(linescenario.scenario.id) | async"> -->
